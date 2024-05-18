@@ -23,3 +23,27 @@ void Bear::printBear() const
     std::cout<<"Breed: "<<m_breed<<std::endl;
 }
 
+Bear::Bear(Bear&& obj) : Animal(obj.getAge(),obj.getWeight(),obj.getGender()),m_color(obj.m_color),m_breed(obj.m_breed)
+{
+    obj.setAge(0);
+    obj.setWeight(0);
+    obj.setGender("");
+    obj.m_color = "";
+    obj.m_breed = "";
+}
+
+Bear& Bear::operator=(Bear&& obj)
+{
+    setAge(obj.getAge());
+    setWeight(obj.getWeight());
+    setGender(obj.getGender());
+    m_color = obj.m_color;
+    m_breed = obj.m_breed;
+
+    obj.setAge(0);
+    obj.setWeight(0);
+    obj.setGender("");
+    obj.m_color = "";
+    obj.m_breed = "";
+}
+

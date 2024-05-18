@@ -7,6 +7,8 @@ class Wolf : public Animal
 public:
    Wolf(const int&,const int&,const std::string&,const std::string&,const std::string&);
    ~Wolf();
+   Wolf(Wolf&& obj);
+   Wolf& operator=(Wolf&& obj);
 
 public:
    void sound() override;

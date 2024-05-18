@@ -7,6 +7,8 @@ class Bear : public Animal
 public:
    Bear(const int&,const int&,const std::string&,const std::string&,const std::string&);
    ~Bear();
+   Bear(Bear&& obj);
+   Bear& operator=(Bear&& obj);
 
 public:
    void sound() override;

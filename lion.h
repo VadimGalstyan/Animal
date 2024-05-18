@@ -9,6 +9,9 @@ class Lion : public Animal
 public:
    Lion(const int&,const int&,const std::string&,const std::string&,const std::string&);
    ~Lion();
+   Lion(Lion&& obj);
+   Lion& operator=(Lion&& obj);
+
 public:
    void printLion() const;
    void sound() override;

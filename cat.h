@@ -7,6 +7,8 @@ class Cat : public Animal
 public:
    Cat(const int&,const int&,const std::string&,const std::string&,const std::string&);
    ~Cat();
+   Cat(Cat&& obj);
+   Cat& operator=(Cat&& obj);
 
 public:
    void sound() override;

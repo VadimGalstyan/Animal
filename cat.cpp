@@ -23,3 +23,27 @@ void Cat::printCat() const
     std::cout<<"Breed: "<<m_breed<<std::endl;
 }
 
+
+Cat::Cat(Cat&& obj) : Animal(obj.getAge(),obj.getWeight(),obj.getGender()),m_name(obj.m_name),m_breed(obj.m_breed)
+{
+    obj.setAge(0);
+    obj.setWeight(0);
+    obj.setGender("");
+    obj.m_name = "";
+    obj.m_breed = "";
+}
+
+Cat& Cat::operator=(Cat&& obj)
+{
+    setAge(obj.getAge());
+    setWeight(obj.getWeight());
+    setGender(obj.getGender());
+    m_name = obj.m_name;
+    m_breed = obj.m_breed;
+
+    obj.setAge(0);
+    obj.setWeight(0);
+    obj.setGender("");
+    obj.m_name = "";
+    obj.m_breed = "";
+}

@@ -23,4 +23,26 @@ void Wolf::printWolf() const
     std::cout<<"Breed: "<<m_breed<<std::endl;
 }
 
+Wolf::Wolf(Wolf&& obj) : Animal(obj.getAge(),obj.getWeight(),obj.getGender()),m_color(obj.m_color),m_breed(obj.m_breed)
+{
+    obj.setAge(0);
+    obj.setWeight(0);
+    obj.setGender("");
+    obj.m_color = "";
+    obj.m_breed = "";
+}
 
+Wolf& Wolf::operator=(Wolf&& obj)
+{
+    setAge(obj.getAge());
+    setWeight(obj.getWeight());
+    setGender(obj.getGender());
+    m_color = obj.m_color;
+    m_breed = obj.m_breed;
+
+    obj.setAge(0);
+    obj.setWeight(0);
+    obj.setGender("");
+    obj.m_color = "";
+    obj.m_breed = "";
+}

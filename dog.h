@@ -8,6 +8,8 @@ class Dog : public Animal
 public:
    Dog(const int&,const int&,const std::string&,const std::string&,const std::string&);
    ~Dog();
+   Dog(Dog&& obj);
+   Dog& operator=(Dog&& obj);
 
 public:
    void sound() override;
